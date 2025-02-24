@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'SegmentedSelector.dart';
+import 'components/SegmentedSelector.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,13 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
-        children: [
-          SizedBox.fromSize(size: Size.fromHeight(20)),
-          SegmentedSelector( items: ['Today', 'Month', 'Custom'],
-              onValueChanged: _onValueChanged
-              , index: index),
-        ],
-      ),
+          children: [
+            SizedBox.fromSize(size: Size.fromHeight(20)),
+            SegmentedSelector(
+              items: ['Today', 'Month', 'Custom'],
+              onValueChanged: _onValueChanged,
+            ),
+          ],
+        ),
       ),
     );
   }
