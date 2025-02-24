@@ -11,10 +11,10 @@ class SegmentedSelector extends StatefulWidget {
   });
 
   @override
-  SegmentedSelectorState createState() => SegmentedSelectorState();
+  State<SegmentedSelector> createState() => _SegmentedSelectorState();
 }
 
-class SegmentedSelectorState extends State<SegmentedSelector> {
+class _SegmentedSelectorState extends State<SegmentedSelector> {
   late int index;
 
   @override

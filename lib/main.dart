@@ -1,3 +1,6 @@
+import 'package:expirations/components/FeedCard.dart';
+import 'package:expirations/hooks/mockUseFeed.dart';
+import 'package:expirations/types/FeedCardInfo.dart';
 import 'package:flutter/material.dart';
 
 import 'components/SegmentedSelector.dart';
@@ -25,6 +28,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int index = 0;
+
+  final List<FeedCardInfo> feedCards = List.from(MockUseFeed().getFeed()..sort((a, b) => a.date.compareTo(b.date)));
 
   void _onValueChanged(int newIndex) {
     setState(() {
@@ -60,6 +65,18 @@ class _MyHomePageState extends State<MyHomePage> {
               items: ['Today', 'Month', 'Custom'],
               onValueChanged: _onValueChanged,
             ),
+            SizedBox.fromSize(size: Size.fromHeight(16)),
+            Column(
+              mainAxisSize: MainAxisSize.max,
+              spacing: 12.0,
+              children: [
+                ...feedCards.asMap().entries.map((entry) {
+                  int index = entry.key;
+                  FeedCardInfo info = entry.value;
+                  return FeedCard(key: ValueKey(index), information: info);
+                })
+              ],
+            )
           ],
         ),
       ),
