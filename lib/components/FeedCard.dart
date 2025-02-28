@@ -1,3 +1,4 @@
+import 'package:expirations/design_system/colors.dart';
 import 'package:expirations/types/CardTypeEnums.dart';
 import 'package:expirations/types/FeedCardInfo.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,8 @@ const SecondaryStyle = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 14,
     fontWeight: FontWeight.normal,
-    color: Color(0xff4a4a4a));
+    color: grey500,
+);
 
 const PrimaryStyle = TextStyle(
   fontFamily: 'Roboto',
@@ -32,9 +34,17 @@ class FeedCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Color(0xffffdfdf),
-        borderRadius: BorderRadius.circular(8.0),
+      decoration: const BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x1A000000),
+            blurRadius: 4,
+            offset: Offset(0, 0),
+            spreadRadius: 1
+          ),
+        ],
       ),
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 8),
       child: Row(
