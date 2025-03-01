@@ -80,6 +80,8 @@ class _FeedState extends State<Feed> {
                 (BuildContext context, void Function(int) methodFromChild) {
               updateIndex = methodFromChild;
             },
+            ratio: 96,
+            correction: 26,
           ),
         ),
         SizedBox.fromSize(size: Size.fromHeight(16)),

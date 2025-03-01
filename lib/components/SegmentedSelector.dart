@@ -9,12 +9,16 @@ class SegmentedSelector extends StatefulWidget {
   final MyBuilder builder;
   final ValueChanged<int> onValueChanged;
   final int selectedIndex;
+  final int ratio;
+  final int correction;
 
   const SegmentedSelector({
     super.key,
     this.items = const [],
     required this.builder,
     required this.onValueChanged,
+    required this.ratio,
+    required this.correction,
     this.selectedIndex = 0,
   });
 
@@ -49,7 +53,7 @@ class _SegmentedSelectorState extends State<SegmentedSelector> {
   Widget build(BuildContext context) {
     widget.builder.call(context, updateIndex); // Call the builder here
 
-    final itemWidth = 96/360 * MediaQuery.of(context).size.width;
+    final itemWidth = widget.ratio/360 * MediaQuery.of(context).size.width;
 
     return Container(
       height: 42.0,
@@ -71,7 +75,7 @@ class _SegmentedSelectorState extends State<SegmentedSelector> {
             duration: Duration(milliseconds: 300),
             curve: Curves.easeInOut,
             left: index * ((MediaQuery.of(context).size.width - (widget.items.length * itemWidth)) /
-                (widget.items.length - 1) + itemWidth - 26),
+                (widget.items.length - 1) + itemWidth - widget.correction),
             height: 26.0,
             child: Container(
               width: itemWidth,

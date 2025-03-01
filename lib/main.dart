@@ -1,3 +1,4 @@
+import 'package:expirations/pages/Add.dart';
 import 'package:expirations/pages/Feed.dart';
 import 'package:expirations/types/UserInfo.dart';
 import 'package:flutter/material.dart';
@@ -31,9 +32,7 @@ Widget _getPage(int index) {
     case 0:
       return Feed();
     case 1:
-      return Center(
-        child: Text('Add'),
-      );
+      return Add();
     case 2:
       return Center(child: Text('Search'));
     default:

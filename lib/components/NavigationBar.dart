@@ -30,9 +30,8 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
-      height: 90.0,
-      padding: EdgeInsets.all(12),
+      height: 76.0,
+      padding: EdgeInsets.all(8),
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
